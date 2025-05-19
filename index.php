@@ -30,17 +30,16 @@
     </header>
     <div class="h-[70vh] w-full bg-secondary">
     </div>
-    <footer class="h-[15vh] w-full bg-base">
-
+    <footer class="h-[15vh] w-full bg-base flex items-center justify-center">
+        <div class="flex justify-between w-full max-w-4xl px-12">
+            <img src="assets/img/home.png"class="h-24 w-24 object-cover">
+            <img src="assets/img/info.png" class="h-24 w-24 object-cover">
+            <img src="assets/img/location.png"  class="h-24 w-24 object-cover">
+            <img src="assets/img/music.png" class="h-24 w-24 object-cover">
+        </div>
     </footer>
 </body>
 
-<!-- <div class="grid grid-cols-1 gap-4">
-            <div class="p-4 bg-primary text-white rounded">Primary kleur</div>
-            <div class="p-4 bg-secondary text-white rounded">Secondary kleur</div>
-            <div class="p-4 bg-accent text-white rounded">Accent kleur</div>
-            <div class="p-4 bg-dark text-white rounded">Dark kleur</div>
-            <div class="p-4 bg-light text-dark rounded border">Light kleur</div>
-        </div> -->
+
 
 </html>
