@@ -1,36 +1,47 @@
-// Store the currently active page
-        let activePage = 'home';
+let activePage = "home";
 
-        // Function to change icons and pages
-        function changePage(pageName) {
-            if (pageName === activePage) return; // Don't do anything if clicking the current page
+function changePage(pageName, forceUpdate = false) {
+  if (!forceUpdate && pageName === activePage) return;
 
-            // Change icons
-            document.getElementById('homeIcon').src = 'assets/img/homeB.png';
-            document.getElementById('infoIcon').src = 'assets/img/infoB.png';
-            document.getElementById('locationIcon').src = 'assets/img/locationB.png';
-            document.getElementById('musicIcon').src = 'assets/img/musicB.png';
+  const pages = document.querySelectorAll(".page");
+  pages.forEach((page) => page.classList.remove("page-active"));
+  document.getElementById(pageName + "Page").classList.add("page-active");
 
-            // Set the clicked icon to white (W)
-            document.getElementById(pageName + 'Icon').src = 'assets/img/' + pageName + 'W.png';
+  activePage = pageName;
 
-            // Hide current page
-            document.getElementById(activePage + 'Page').classList.remove('page-active');
+  updateIcons();
+}
 
-            // Show new page
-            document.getElementById(pageName + 'Page').classList.add('page-active');
+document.addEventListener("DOMContentLoaded", () => {
+  // Forceren dat home altijd geselecteerd wordt bij refresh
+  changePage(activePage, true);
 
-            // Update the active page
-            activePage = pageName;
+  ["home", "info", "location", "music"].forEach((name) => {
+    document.getElementById(name + "Icon").addEventListener("click", () => changePage(name));
+  });
 
-            // Save the active page to localStorage
-            localStorage.setItem('activePage', activePage);
-        }
+  const html = document.documentElement;
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === "class") {
+        updateIcons();
+      }
+    });
+  });
 
-        // When the page loads, check if there's a saved active page
-        window.addEventListener('DOMContentLoaded', function () {
-            const savedPage = localStorage.getItem('activePage');
-            if (savedPage) {
-                changePage(savedPage);
-            }
-        });
+  observer.observe(html, { attributes: true });
+});
+
+function updateIcons() {
+  const isDarkMode = document.documentElement.classList.contains("dark");
+  const iconNames = ["home", "info", "location", "music"];
+
+  iconNames.forEach((name) => {
+    const iconElement = document.getElementById(name + "Icon");
+    const isSelected = name === activePage;
+
+    const color = isSelected ? (isDarkMode ? "W" : "B") : isDarkMode ? "B" : "W";
+
+    iconElement.src = `assets/img/${name}${color}.png`;
+  });
+}

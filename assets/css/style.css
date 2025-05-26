@@ -1,11 +1,37 @@
-  .page {
-            position: absolute;
-            width: 100%;
-            height: 70vh;
-            transition: transform 0.5s ease;
-            transform: translateY(100%);
-        }
-        
-        .page-active {
-            transform: translateY(0);
-        }
+/* MARK: 
+PAGE ANIMATION
+  */
+.page {
+  display: none;
+}
+
+.page-active {
+  display: flex; /* of block, wat jij wilt */
+}
+
+
+/* MARK: 
+DARK/LIGHT MODE ANIMATION
+  */
+/* Add rotation animation for theme switch */
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.rotating {
+    animation: rotate 0.5s linear;
+}
+
+/* Page transitions */
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+    transform: translateY(100%);
+}
+
+.page-active {
+    transform: translateY(0);
+}
