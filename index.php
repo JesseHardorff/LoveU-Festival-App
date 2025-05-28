@@ -59,16 +59,13 @@
             <p class="font-sansation text-6xl text-white dark:text-black">FESTIVAL</p>
         </div>
         <div class="h-full w-[15vw] bg-primary dark:bg-base flex justify-center items-center ">
-            <!-- Theme switch met Tailwind classes waar mogelijk -->
-            <div id="theme-switch" class="relative w-full aspect-square cursor-pointer">
-                <img src="assets/img/night.png" alt="Dark mode"
-                    class="moon absolute w-full h-full transition-all duration-500 block dark:hidden">
-                <img src="assets/img/light.png" alt="Light mode"
-                    class="sun absolute w-full h-full transition-all duration-500 hidden dark:block">
+            <!-- Theme switch met alleen de darkmode.svg die roteert -->
+            <div id="theme-switch"
+                class="relative w-full aspect-square cursor-pointer transition-transform duration-500">
+                <img src="assets/img/darkmode.svg" alt="Theme toggle" class="w-full h-full">
             </div>
-
-
         </div>
+
         <div class="h-full w-[15vw] bg-primary dark:bg-base flex justify-center items-center">
             <img src="assets/img/netherlands.png" alt="" class="h-4/5 object-contain">
         </div>
@@ -79,41 +76,68 @@
 
     <div class="relative h-[80vh] w-full bg-base dark:bg-primary overflow-hidden">
         <!-- Home Page -->
-        <div id="homePage" class="page page-active bg-base dark:bg-primary flex justify-center overflow-y-auto">
+        <div id="homePage" class="page page-active bg-base dark:bg-primary justify-center overflow-y-auto">
             <div class="">
                 <div
                     class="w-[90vw] bg-base dark:bg-primary h-[25vh] my-5 rounded-xl border-4 border-black dark:border-white">
-
                 </div>
                 <div
                     class="w-[90vw] bg-base dark:bg-primary h-[15vh] my-5 rounded-xl border-4 border-black dark:border-white">
-
                 </div>
                 <div
                     class="w-[90vw] bg-base dark:bg-primary h-[40vh] my-5 rounded-xl border-4 border-black dark:border-white">
-
                 </div>
             </div>
         </div>
 
-
         <!-- Info Page -->
-        <div id="infoPage" class="page bg-base dark:bg-primary flex items-center justify-center">
+        <div id="infoPage" class="page bg-base dark:bg-primary flex-col gap-4 mt-4 items-center ">
+            <details class="w-[90vw]">
+                <summary
+                    class="w-full h-[10vh] bg-secondary rounded-3xl border-4 flex justify-center items-center text-white dark:text-black text-6xl font-sansation cursor-pointer">
+                    <span>Tickets & Prijzen</span>
+                    <span class="transform transition-transform duration-200 ml-4">▼</span>
+                </summary>
+                <div class="p-10 bg-base dark:bg-primary text-secondary">
+                    <div class="text-left my-4 text-5xl font-sansation font-black">
+                        <p>Ticket informatie en prijzen...</p>
+                    </div>
+                    <div class="text-left my-14 bg-base dark:bg-primary text-primary dark:text-white text-5xl">
+                        <p>Ticket informatie en prijzen.rmatie en prijzen.rmatie en prijzen...</p>
+                    </div>
 
+
+            </details>
+            <details class="w-[90vw]">
+                <summary
+                    class="w-full h-[10vh] bg-secondary rounded-3xl border-4 flex justify-center items-center text-white dark:text-black text-6xl font-sansation cursor-pointer">
+                    <span>Tickets & Prijzen</span>
+                    <span class="transform transition-transform duration-200 ml-4">▼</span>
+                </summary>
+                <div class="p-10 bg-base dark:bg-primary text-secondary">
+                    <div class="text-left my-4 text-5xl font-sansation font-black">
+                        <p>Ticket informatie en prijzen...</p>
+                    </div>
+                    <div class="text-left my-14 bg-base dark:bg-primary text-primary dark:text-white text-5xl">
+                        <p>Ticket informatie en prijzen.rmatie en prijzen.rmatie en prijzen...</p>
+                    </div>
+
+
+            </details>
         </div>
+
+
 
 
         <!-- Location Page -->
-        <div id="locationPage" class="page bg-base dark:bg-primary flex items-center justify-center">
-
+        <div id="locationPage" class="page bg-base dark:bg-primary items-center justify-center">
         </div>
 
-
         <!-- Music Page -->
-        <div id="musicPage" class="page bg-base dark:bg-primary flex items-center justify-center">
+        <div id="musicPage" class="page bg-base dark:bg-primary items-center justify-center">
             <div class="text-center">
-                <h2 class="text-4xl font-sansation text-primary dark:text-base  mb-4">Music Page</h2>
-                <p class="text-xl text-primary dark:text-base ">Ontdek de artiesten en het programma.</p>
+                <h2 class="text-4xl font-sansation text-primary dark:text-base mb-4">Music Page</h2>
+                <p class="text-xl text-primary dark:text-base">Ontdek de artiesten en het programma.</p>
             </div>
         </div>
     </div>
