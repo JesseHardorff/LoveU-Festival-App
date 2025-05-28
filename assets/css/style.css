@@ -1,112 +1,97 @@
-/* MARK:PAGE ANIMATION  */
+/* Reset en basis styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Sansation", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header styling */
+header {
+  flex-shrink: 0;
+  z-index: 1000;
+  position: relative;
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Dark/Light mode toggle animation - JUISTE ID */
+#theme-switch {
+  transition: transform 0.5s ease-in-out !important;
+}
+
+#theme-switch:hover {
+  transform: scale(1.1) !important;
+}
+
+/* Rotatie voor actieve staat */
+#theme-switch.active {
+  transform: rotate(180deg) !important;
+}
+
+#theme-switch.active:hover {
+  transform: rotate(180deg) scale(1.1) !important;
+}
+
+/* Page styling */
 .page {
-  display: none !important;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  padding: 20px;
 }
 
-.page.page-active {
-  display: flex !important;
+.page-active {
+  opacity: 1;
+  visibility: visible;
 }
 
-/* MARK:DARK/LIGHT MODE ANIMATION  */
-#theme-switch.active {
-  transform: rotate(180deg);
-}
-
-/* MARK:DETAILS ARROW ANIMATION */
-/* MARK:DETAILS ANIMATION */
-details {
-  overflow: hidden;
-}
-
+/* Details styling */
 details summary {
-  transition: all 0.3s ease;
+  list-style: none;
 }
 
-details[open] summary {
-  margin-bottom: 0.5rem;
+details summary::-webkit-details-marker {
+  display: none;
 }
 
-/* Animatie voor de content */
-details > div {
-  animation: slideDown 0.3s ease-out;
+details[open] summary span:last-child {
+  transform: rotate(180deg);
+  transition: transform 0.2s ease-in-out;
 }
 
-details:not([open]) > div {
-  animation: slideUp 0.3s ease-out;
+/* Zorg ervoor dat alle summary spans een transition hebben */
+details summary span:last-child {
+  transition: transform 0.2s ease-in-out;
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-    max-height: 0;
+/* Responsive text sizing */
+@media (max-width: 768px) {
+  .text-6xl {
+    font-size: 3rem;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    max-height: 200px;
+  .text-4xl {
+    font-size: 2rem;
   }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-    max-height: 200px;
+  .text-3xl {
+    font-size: 1.5rem;
   }
-  to {
-    opacity: 0;
-    transform: translateY(-10px);
-    max-height: 0;
-  }
-}
-
-/* MARK:
-FLOORPLAN 
-*/
-.floorplan-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    touch-action: none; /* Voorkomt standaard browser zoom/pan */
-}
-
-.floorplan-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    cursor: grab;
-}
-
-.floorplan-canvas:active {
-    cursor: grabbing;
-}
-
-.marker-info {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.9);
-    color: white;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 14px;
-    max-width: 250px;
-    z-index: 1000;
-    pointer-events: none;
-    transform: translate(-50%, -100%);
-}
-
-.marker-info::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 8px solid transparent;
-    border-top-color: rgba(0, 0, 0, 0.9);
 }
