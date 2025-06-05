@@ -206,25 +206,45 @@
             <div id="mapContainer" class="w-[95vw] h-[85vh] bg-white rounded-lg border-4 border-black dark:border-white overflow-hidden relative cursor-grab">
                 <img id="mapImage" src="assets/img/map.svg" alt="Festival Map" class="w-full h-full object-cover">
                 
-                <!-- Map Controls -->
-                <div class="absolute bottom-4 left-4 flex gap-2 z-10">
-                    <button id="zoomIn" class="bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold hover:bg-accent transition-colors">+</button>
-                    <button id="zoomOut" class="bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold hover:bg-accent transition-colors">-</button>
-                    <button id="resetMap" class="bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold hover:bg-accent transition-colors">⌂</button>
-                </div>
+            
             </div>
         </div>
 
 
 
         
-        <!-- Music Page -->
-        <div id="musicPage" class="page bg-base dark:bg-primary items-center justify-center">
-            <div class="text-center">
-                <h2 class="text-4xl font-sansation text-primary dark:text-base mb-4" data-translate="music-title">Muziek</h2>
-                <p class="text-xl text-primary dark:text-base" data-translate="music-description">Ontdek de artiesten en het programma.</p>
+ <!-- Music Page -->
+<div id="musicPage" class="page bg-base dark:bg-primary items-center justify-center overflow-y-auto">
+    <div class="w-full max-w-6xl px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h2 class="text-6xl font-sansation font-black text-primary dark:text-base mb-4" data-translate="music-title">Muziek</h2>
+        </div>
+        
+        <!-- Artists Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+            <!-- Artist 1 -->
+            <div class="bg-base dark:bg-primary rounded-xl border-4 border-black dark:border-white p-6 flex flex-col items-center">
+                <div class="w-full h-[40vh] mb-6 overflow-hidden rounded-lg">
+                    <img src="assets/img/artiest1.png" alt="Artist 1" class="w-full h-full object-cover">
+                </div>
+                <p class="text-2xl font-sansation text-primary dark:text-white text-center leading-relaxed">
+                    Five-time "World's No. 1 DJ" and trance icon, Armin delivers euphoric, high-energy sets that have headlined festivals from Tomorrowland to Ultra. His uplifting melodies and impeccable mixing keep crowds dancing for hours.
+                </p>
+            </div>
+            
+            <!-- Artist 2 -->
+            <div class="bg-base dark:bg-primary rounded-xl border-4 border-black dark:border-white p-6 flex flex-col items-center">
+                <div class="w-full h-[40vh] mb-6 overflow-hidden rounded-lg">
+                    <img src="assets/img/artiest2.png" alt="Artist 2" class="w-full h-full object-cover">
+                </div>
+                <p class="text-2xl font-sansation text-primary dark:text-white text-center leading-relaxed">
+                    Broke through as a teenager with "Animals," Martin Garrix has become one of the biggest names in EDM. His anthemic big-room tracks and stadium-sized drops make him a festival favorite across Europe.
+                </p>
             </div>
         </div>
+    </div>
+</div>
     </div>
     
     <footer class="h-[10vh] w-full bg-accent flex items-center justify-center">
